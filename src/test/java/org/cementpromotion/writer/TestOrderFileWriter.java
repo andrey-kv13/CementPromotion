@@ -1,4 +1,4 @@
-package org.cementpromotion.adapter;
+package org.cementpromotion.writer;
 
 import org.cementpromotion.TestData;
 import org.cementpromotion.dto.Order;
@@ -11,12 +11,12 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestWriteToFile {
+public class TestOrderFileWriter {
     @Test
     public void testWrite() throws IOException {
         List<Order> result = TestData.sortedListTotalPrice();
-        WriteToFile writer = new WriteToFile();
-        writer.write(result);
+        OrderFileWriter writer = new OrderFileWriter();
+        writer.write(result, "totalPrice.txt");
 
         List<String> lines = Files.readAllLines(Path.of("totalPrice.txt"));
 

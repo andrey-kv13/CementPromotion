@@ -12,9 +12,9 @@ public class TestCalculateDiscount {
 
     @Test
     public void testCalculateDiscount() {
-        List<Order> sorted = TestData.sortedOrders();
-        CalculateDiscount calculator = new CalculateDiscount(sorted, 156, 0.5, 0.05);
-        List<Order> result = calculator.calculate();
+        List<Order> orders = TestData.sortedOrders();
+        CalculateDiscount calculator = new CalculateDiscount();
+        List<Order> result = calculator.calculate(orders, 156, 0.5, 0.05);
 
         assertEquals(2, result.size());
         assertEquals("Alpha", result.get(0).getCustomer());

@@ -34,3 +34,12 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Local / runtime artifacts ###
+totalPrice*.txt
+testResul
+_3517xx.txt
+_case_details.txt
+_testit_search.txt
+pr_comments.json
+pr_reviews.json

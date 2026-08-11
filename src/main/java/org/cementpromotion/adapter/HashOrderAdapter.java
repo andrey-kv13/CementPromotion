@@ -10,15 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class HashOrderAdapter implements OrderFileReader {
+public class HashOrderAdapter implements OrderFileAdapter {
 
-    private final String filePath;
-
-    public HashOrderAdapter(String filePath) {
-        this.filePath = filePath;
-    }
-
-    public List<Order> read() {
+    public List<Order> read(String filePath) {
         List<Order> orders = new ArrayList<>();
         File file = new File(filePath);
         try (Scanner scanner = new Scanner(file)) {
@@ -28,7 +22,7 @@ public class HashOrderAdapter implements OrderFileReader {
                 String[] parts = line.split("\\#");
                 String dateStr = parts[0].trim();
                 String customer = parts[1].trim();
-                Double kg = Double.valueOf(parts[2].trim());
+                double kg = Double.valueOf(parts[2].trim());
 
                 LocalDateTime date = LocalDateTime.parse(dateStr);
                 orders.add(new Order(customer, kg, date, 0));

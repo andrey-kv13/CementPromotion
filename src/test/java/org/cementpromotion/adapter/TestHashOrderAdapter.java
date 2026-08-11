@@ -11,8 +11,9 @@ public class TestHashOrderAdapter {
 
     @Test
     public void testRead() {
-        OrderFileReader source = new HashOrderAdapter("src/test/resources/orders_hash");
-        List<Order> orders = source.read();
+        HashOrderAdapter source = new HashOrderAdapter();
+
+        List<Order> orders = source.read("src/test/resources/orders_hash");
         assertEquals(3, orders.size(),
                 () -> "Ожидали 3 заказа, получили " + orders.size());
     }

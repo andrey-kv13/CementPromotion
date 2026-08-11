@@ -17,8 +17,8 @@ public class TestPipeOrderAdapter {
             "src/test/resources/orders_single.txt, 1"
     })
     public void testRead(String input, int expectedValue) {
-        OrderFileReader source = new PipeOrderAdapter(input);
-        List<Order> orders = source.read();
+        OrderFileAdapter source = new PipeOrderAdapter();
+        List<Order> orders = source.read(input);
         assertEquals(expectedValue, orders.size(),
                 () -> "Ожидали " + expectedValue + " заказов, получили " + orders.size());
     }

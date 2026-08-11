@@ -4,8 +4,8 @@ import org.cementpromotion.dto.Order;
 
 import java.util.List;
 
-public interface OrderFileReader {
+public interface OrderFileAdapter {
 
-    List<Order> read();
+    List<Order> read(String filePath);
 
 }

@@ -10,15 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class PipeOrderAdapter implements OrderFileReader {
+public class PipeOrderAdapter implements OrderFileAdapter {
 
-    private final String filePath;
-
-    public PipeOrderAdapter(String filePath) {
-        this.filePath = filePath;
-    }
-
-    public List<Order> read() {
+    public List<Order> read(String filePath) {
         List<Order> orders = new ArrayList<>();
         File file = new File(filePath);
 
@@ -29,7 +23,7 @@ public class PipeOrderAdapter implements OrderFileReader {
                 String[] parts = line.split("\\|");
                 String dateStr = parts[0].trim();
                 String customer = parts[1].trim();
-                Double kg = Double.valueOf(parts[2].trim());
+                double kg = Double.valueOf(parts[2].trim());
 
 
                 LocalDateTime date = LocalDateTime.parse(dateStr);
