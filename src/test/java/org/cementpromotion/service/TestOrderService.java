@@ -20,8 +20,6 @@ public class TestOrderService {
         assertEquals("Alpha", result.get(0).getCustomer());
         assertEquals("Beta", result.get(1).getCustomer());
         assertEquals(13650.0, result.get(0).getFinalPrice(), 0.01);
-
     }
-
-
 }
+

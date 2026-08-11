@@ -1,9 +1,8 @@
-package org.cementpromotion.writer;
+package org.cementpromotion.service;
 
 import org.cementpromotion.TestData;
 import org.cementpromotion.adapter.PipeOrderAdapter;
 import org.cementpromotion.dto.Order;
-import org.cementpromotion.service.FileOrderService;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -13,7 +12,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestOrderFileWriter {
+public class TestFileOrderService {
+
     @Test
     public void testWrite() throws IOException {
         List<Order> result = TestData.sortedListTotalPrice();
@@ -26,6 +26,5 @@ public class TestOrderFileWriter {
                 () -> "Ожидали строку 'Alpha - 13650', получили '" + lines.get(0) + "'");
         assertEquals("Beta - 15600", lines.get(1),
                 () -> "Ожидали строку 'Beta - 15600', получили '" + lines.get(1) + "'");
-
     }
 }

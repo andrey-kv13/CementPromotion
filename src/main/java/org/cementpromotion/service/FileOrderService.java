@@ -9,14 +9,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-
 public class FileOrderService {
     private final OrderFileAdapter reader;
 
     public FileOrderService(OrderFileAdapter reader) {
         this.reader = reader;
     }
-
 
     public void write(List<Order> result, String filePath) {
         File file = new File(filePath);
@@ -34,6 +32,5 @@ public class FileOrderService {
     public List<Order> read(String filePath) {
         return reader.read(filePath);
     }
-
 }
 
