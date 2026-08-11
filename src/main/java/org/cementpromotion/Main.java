@@ -2,20 +2,19 @@ package org.cementpromotion;
 
 import org.cementpromotion.adapter.OrderFileAdapter;
 import org.cementpromotion.adapter.PipeOrderAdapter;
-import org.cementpromotion.service.FileOrderManager;
-import org.cementpromotion.writer.OrderFileWriter;
-import org.cementpromotion.service.CalculateDiscount;
+import org.cementpromotion.service.FileOrderService;
+import org.cementpromotion.manager.FileOrderManager;
+import org.cementpromotion.service.OrderService;
 
 public class Main {
     public static void main(String[] args) {
 
-        OrderFileAdapter reader = new PipeOrderAdapter();
+        FileOrderService fileOrderService = new FileOrderService(new PipeOrderAdapter());
 
-        CalculateDiscount calculator = new CalculateDiscount();
+        OrderService calculator = new OrderService();
 
-        OrderFileWriter writer = new OrderFileWriter();
 
-        FileOrderManager manager = new FileOrderManager(reader, calculator, writer);
+        FileOrderManager manager = new FileOrderManager(fileOrderService, calculator);
         manager.run("discount_day.txt",
                 "totalPrice1.txt",
                 156.0,

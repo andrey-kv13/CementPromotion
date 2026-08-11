@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-public class CalculateDiscount {
+public class OrderService {
 
 
     public List<Order> calculate(List<Order> orders, double pricePerKg, double initialDiscount, double discountStep) {

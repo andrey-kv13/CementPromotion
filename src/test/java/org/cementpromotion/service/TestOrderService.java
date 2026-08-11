@@ -8,12 +8,12 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestCalculateDiscount {
+public class TestOrderService {
 
     @Test
-    public void testCalculateDiscount() {
+    public void testOrderService() {
         List<Order> orders = TestData.sortedOrders();
-        CalculateDiscount calculator = new CalculateDiscount();
+        OrderService calculator = new OrderService();
         List<Order> result = calculator.calculate(orders, 156, 0.5, 0.05);
 
         assertEquals(2, result.size());

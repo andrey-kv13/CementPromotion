@@ -1,7 +1,9 @@
 package org.cementpromotion.writer;
 
 import org.cementpromotion.TestData;
+import org.cementpromotion.adapter.PipeOrderAdapter;
 import org.cementpromotion.dto.Order;
+import org.cementpromotion.service.FileOrderService;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -15,8 +17,8 @@ public class TestOrderFileWriter {
     @Test
     public void testWrite() throws IOException {
         List<Order> result = TestData.sortedListTotalPrice();
-        OrderFileWriter writer = new OrderFileWriter();
-        writer.write(result, "totalPrice.txt");
+        FileOrderService fileOrderService = new FileOrderService(new PipeOrderAdapter());
+        fileOrderService.write(result, "totalPrice.txt");
 
         List<String> lines = Files.readAllLines(Path.of("totalPrice.txt"));
 
